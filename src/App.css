@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+.dash_bg_pattern {
+  background-image: url("./assets/pattern.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.main_dash {
+  background-image: url("./assets/pattern2.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.auth_bg {
+  background-image: url("./assets/auth_pattern.png"),
+    url("./assets//auth_banner.jpg");
+  background-position: bottom, bottom;
+  background-size: cover, cover;
+  background-repeat: no-repeat, no-repeat;
+}
