@@ -20,11 +20,13 @@ import PaymentSuccess from "../components/pages/PaymentSuccess";
 import ManageItemUpdate from "../components/admin/ManageItemUpdate";
 import Blog from "../components/pages/Blog";
 import Reservation from "../components/pages/Reservation";
+import ErrorPage from "../components/shared/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
