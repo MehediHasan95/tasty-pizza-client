@@ -5,6 +5,7 @@ import useAxiosSecure from "./useAxiosSecure";
 const useAddToCart = () => {
   const { user, loading } = useAuth();
   const [instance] = useAxiosSecure();
+  console.log(user, loading);
 
   const {
     refetch,
@@ -21,11 +22,19 @@ const useAddToCart = () => {
 
   const totalValue = carts.reduce(
     (accumulator, item) => {
+      const itemTotal = item.quantity * item.price;
       accumulator.totalQty += item.quantity;
-      accumulator.totalPrice += item.quantity * item.price;
+      accumulator.totalPriceWithoutShipping += itemTotal;
+      accumulator.totalPrice += itemTotal + itemTotal * 0.05;
+      accumulator.totalShipping += itemTotal * 0.05;
       return accumulator;
     },
-    { totalQty: 0, totalPrice: 0 }
+    {
+      totalQty: 0,
+      totalPriceWithoutShipping: 0,
+      totalPrice: 0,
+      totalShipping: 0,
+    }
   );
 
   return [{ carts, refetch, isLoading, totalValue }];

@@ -184,11 +184,11 @@ const Payment = () => {
               <div>
                 <p>{time}</p>
                 <p className="text-orange font-bold">
-                  {totalValue.totalPrice} tk
+                  {totalValue.totalPriceWithoutShipping.toFixed(2)} tk
                 </p>
-                <p>0.00 tk</p>
+                <p>{totalValue.totalShipping.toFixed(2)} tk</p>
                 <p className="text-orange font-bold">
-                  {totalValue.totalPrice} tk
+                  {totalValue.totalPrice.toFixed(2)} tk
                 </p>
               </div>
             </div>

@@ -1,6 +1,6 @@
 # TastyPizza
 
-### Live website: [https://avengerstoyzone.web.app/](https://tasty-pizza-restaurant.web.app/)
+### Live website: [https://avengerstoyzone.web.app/](https://tasty-pizza-server.vercel.app/)
 
 Website features:
 

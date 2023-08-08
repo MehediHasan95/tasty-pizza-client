@@ -14,8 +14,6 @@ const Navbar = () => {
   const [carts] = useAddToCart();
   const { totalQty, totalPrice } = carts.totalValue;
 
-  console.log(role);
-
   let navList = (
     <>
       <li>
@@ -57,10 +55,19 @@ const Navbar = () => {
       </li>
 
       <li>
-        <button>
-          <FontAwesomeIcon icon={faShoppingBag} className="me-2" />
-          {totalQty} items - ${totalPrice}
-        </button>
+        <NavLink to="/user-dashboard/my-cart">
+          {({ isActive }) => (
+            <button>
+              <FontAwesomeIcon
+                icon={faShoppingBag}
+                className={isActive ? active : inActive}
+              />
+              <span className="ms-2">
+                {totalQty} items - ${totalPrice?.toFixed(2)}
+              </span>
+            </button>
+          )}
+        </NavLink>
       </li>
       <li>
         <NavLink

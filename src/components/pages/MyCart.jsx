@@ -82,11 +82,13 @@ const MyCart = () => {
               </div>
               <div className="space-y-2">
                 <p className="text-orange font-bold">
-                  {totalValue.totalPrice} tk
+                  {totalValue.totalPriceWithoutShipping.toFixed(2)} tk
                 </p>
-                <p className="text-orange font-bold">0.00 tk</p>
                 <p className="text-orange font-bold">
-                  {totalValue.totalPrice} tk
+                  {totalValue.totalShipping.toFixed(2)} tk
+                </p>
+                <p className="text-orange font-bold">
+                  {totalValue.totalPrice.toFixed(2)} tk
                 </p>
               </div>
             </div>

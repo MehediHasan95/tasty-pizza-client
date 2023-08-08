@@ -27,6 +27,11 @@ const AuthProvider = ({ children }) => {
             localStorage.setItem("access-token", res.data.token);
             setLoading(false);
           });
+        axios
+          .get(`https://tasty-pizza-server.vercel.app/role/${user?.uid}`)
+          .then((res) => {
+            setRole(res.data.role);
+          });
       } else {
         localStorage.removeItem("access-token");
       }
@@ -34,14 +39,6 @@ const AuthProvider = ({ children }) => {
     });
     return () => unsubscribe();
   }, []);
-
-  useEffect(() => {
-    axios
-      .get(`https://tasty-pizza-server.vercel.app/role/${user?.uid}`)
-      .then((res) => {
-        setRole(res.data.role);
-      });
-  }, [user]);
 
   const loginUser = (email, password) => {
     setLoading(true);
@@ -60,7 +57,6 @@ const AuthProvider = ({ children }) => {
   const googleSignIn = () => signInWithPopup(auth, new GoogleAuthProvider());
 
   const logOut = () => signOut(auth);
-
   return (
     <AuthContext.Provider
       value={{
