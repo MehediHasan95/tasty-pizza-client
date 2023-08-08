@@ -6,7 +6,11 @@ const useMyOrder = () => {
   const { user, loading } = useAuth();
   const [instance] = useAxiosSecure();
 
-  const { data: orders = [], isLoading } = useQuery({
+  const {
+    refetch,
+    data: orders = [],
+    isLoading,
+  } = useQuery({
     queryKey: ["my-orders"],
     enabled: !loading,
     queryFn: async () => {
@@ -14,7 +18,7 @@ const useMyOrder = () => {
       return res.data;
     },
   });
-  return [orders, isLoading];
+  return [orders, refetch, isLoading];
 };
 
 export default useMyOrder;

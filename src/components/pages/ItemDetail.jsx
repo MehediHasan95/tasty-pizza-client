@@ -24,13 +24,15 @@ const ItemDetail = () => {
 
   const handleQuantity = (toggle) => {
     if (toggle) {
-      setSelectedQty(quantity === selectedQty ? selectedQty : selectedQty + 1);
+      setSelectedQty(
+        parseInt(quantity) === selectedQty ? selectedQty : selectedQty + 1
+      );
     } else {
       setSelectedQty(selectedQty - 1 || 1);
     }
   };
 
-  if (selectedQty === quantity) {
+  if (selectedQty === parseInt(quantity)) {
     warningMsg = "We have no more in stock";
   }
 

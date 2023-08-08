@@ -4,7 +4,6 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const PaymentSuccess = () => {
   const { tran_id } = useParams();
-  console.log(tran_id);
   const navigate = useNavigate();
 
   return (

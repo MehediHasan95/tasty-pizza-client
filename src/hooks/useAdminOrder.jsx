@@ -6,7 +6,11 @@ const useAdminOrder = () => {
   const { user, loading } = useAuth();
   const [instance] = useAxiosSecure();
 
-  const { data: allOrders = [], isLoading } = useQuery({
+  const {
+    refetch,
+    data: allOrders = [],
+    isLoading,
+  } = useQuery({
     queryKey: ["admin-order"],
     enabled: !loading,
     queryFn: async () => {
@@ -14,7 +18,7 @@ const useAdminOrder = () => {
       return res.data;
     },
   });
-  return [allOrders, isLoading];
+  return [allOrders, refetch, isLoading];
 };
 
 export default useAdminOrder;

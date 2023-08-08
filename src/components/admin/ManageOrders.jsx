@@ -1,7 +1,36 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import useAdminOrder from "../../hooks/useAdminOrder";
+import {
+  faCircleCheck,
+  faCircleXmark,
+} from "@fortawesome/free-solid-svg-icons";
+import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { errorToast, successToast } from "../../utilities/toastBar";
 
 const ManageOrders = () => {
-  const [allOrders, isLoading] = useAdminOrder();
+  const [allOrders, refetch, isLoading] = useAdminOrder();
+  const { user } = useAuth();
+  const [instance] = useAxiosSecure();
+
+  const handleRemoveOrder = (id) => {
+    instance
+      .delete(`/admin-order-delete/${id}?uid=${user?.uid}`)
+      .then((res) => {
+        if (res.data.deletedCount) {
+          refetch();
+          errorToast("Order cancle!");
+        }
+      });
+  };
+  const handleConfirmOrder = (id) => {
+    instance.patch(`/admin-order-delete/${id}?uid=${user?.uid}`).then((res) => {
+      if (res.data.matchedCount) {
+        refetch();
+        successToast("Order confirm successful!");
+      }
+    });
+  };
 
   return (
     <div>
@@ -23,6 +52,7 @@ const ManageOrders = () => {
               city,
               postcode,
               carts,
+              payment_status,
               status,
             }) => (
               <div key={_id} className="p-3 mb-3 bg-base-300">
@@ -36,11 +66,12 @@ const ManageOrders = () => {
                   <div className="text-right">
                     <p>Gross amount</p>
                     <p className="text-xl lg:text-3xl font-bold">
-                      {total_price} /-Tk
+                      {total_price?.toFixed(2)} /-Tk
                     </p>
                   </div>
                 </div>
                 <div className="my-3">
+                  <p>Payment status: {payment_status ? "Paid" : "Unpaid"}</p>
                   <p>{order_time}</p>
                   <p>Transaction ID: {transaction_id}</p>
                   <p>Phone No: {phone}</p>
@@ -72,6 +103,22 @@ const ManageOrders = () => {
                       )}
                     </tbody>
                   </table>
+                  {status || (
+                    <div className="mt-3 space-x-1">
+                      <button
+                        onClick={() => handleRemoveOrder(_id)}
+                        className="border bg-red-500 text-white px-4"
+                      >
+                        <FontAwesomeIcon icon={faCircleXmark} /> Remove
+                      </button>
+                      <button
+                        onClick={() => handleConfirmOrder(_id)}
+                        className="border bg-green-500 text-white px-4"
+                      >
+                        <FontAwesomeIcon icon={faCircleCheck} /> Confirm
+                      </button>
+                    </div>
+                  )}
                 </div>
               </div>
             )

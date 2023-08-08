@@ -5,7 +5,6 @@ import useAxiosSecure from "./useAxiosSecure";
 const useAddToCart = () => {
   const { user, loading } = useAuth();
   const [instance] = useAxiosSecure();
-  console.log(user, loading);
 
   const {
     refetch,

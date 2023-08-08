@@ -6,6 +6,7 @@ import {
   faLinkedinIn,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -15,9 +16,11 @@ const Footer = () => {
           <div className="col-span-1">
             <div className="flex items-center mb-5">
               <img src={logo} alt="logo" className="w-8" />
-              <h1 className="text-white text-4xl font-bold">
-                <span className="text-orange">Tasty</span>Pizza
-              </h1>
+              <Link to="/">
+                <h1 className="text-white text-4xl font-bold">
+                  <span className="text-orange">Tasty</span>Pizza
+                </h1>
+              </Link>
             </div>
 
             <div className="space-y-5">

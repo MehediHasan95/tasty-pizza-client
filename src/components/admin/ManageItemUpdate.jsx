@@ -28,8 +28,8 @@ const ManageItemUpdate = () => {
     e.preventDefault();
     setLoading(true);
     const name = e.target.name.value;
-    const price = e.target.price.value;
-    const quantity = e.target.quantity.value;
+    const price = parseFloat(e.target.price.value);
+    const quantity = parseInt(e.target.quantity.value);
     const image = e.target.image.value;
     const description = e.target.description.value;
     instance

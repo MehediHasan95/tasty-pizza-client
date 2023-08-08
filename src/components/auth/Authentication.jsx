@@ -131,7 +131,6 @@ const Authentication = () => {
           if (res.data.insertedId) {
             dispatch({ type: SUCCESS });
             navigate(from, { replace: true });
-            navigate(0);
           }
         });
     });

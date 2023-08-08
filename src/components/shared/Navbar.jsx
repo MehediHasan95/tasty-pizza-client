@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { logo } from "../../utilities/image-constant";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
@@ -115,9 +115,11 @@ const Navbar = () => {
           </div>
           <div className="flex-1 px-2 mx-2">
             <img src={logo} alt="logo" className="w-8" />
-            <h1 className="text-white text-4xl font-bold">
-              <span className="text-orange">Tasty</span>Pizza
-            </h1>
+            <Link to="/">
+              <h1 className="text-white text-4xl font-bold">
+                <span className="text-orange">Tasty</span>Pizza
+              </h1>
+            </Link>
           </div>
           <div className="hidden lg:block text-white">
             <ul className="flex justify-center space-x-10 uppercase">
