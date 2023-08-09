@@ -33,7 +33,7 @@ const ItemDetail = () => {
   };
 
   if (selectedQty === parseInt(quantity)) {
-    warningMsg = "We have no more in stock";
+    warningMsg = `There are only ${quantity} ${name} in stock.`;
   }
 
   const handleAddToCart = () => {
@@ -102,34 +102,42 @@ const ItemDetail = () => {
             </p>
           </div>
 
-          <div className="flex items-center space-x-5">
-            <div className="flex items-center space-x-2">
-              <p>Quantity:</p>
-              <button
-                onClick={() => handleQuantity(false)}
-                className="btn rounded-none border-none"
-              >
-                -
-              </button>
-              <p className="px-8 py-2 border">{selectedQty}</p>
-              <button
-                onClick={() => handleQuantity(true)}
-                className="btn rounded-none border-none"
-              >
-                +
-              </button>
-            </div>
+          {quantity > 0 ? (
+            <div className="flex items-center space-x-5">
+              <div className="flex items-center space-x-2">
+                <p>Quantity:</p>
+                <button
+                  onClick={() => handleQuantity(false)}
+                  className="btn rounded-none border-none"
+                >
+                  -
+                </button>
+                <p className="px-8 py-2 border">{selectedQty}</p>
+                <button
+                  onClick={() => handleQuantity(true)}
+                  className="btn rounded-none border-none"
+                >
+                  +
+                </button>
+              </div>
 
-            {role === ROLE && (
               <button
                 onClick={handleAddToCart}
                 className="w-2/5 py-2 bg-orange text-white uppercase"
+                disabled={role !== ROLE ? true : false}
               >
                 <FontAwesomeIcon icon={faShoppingBasket} className="me-2" />
                 <span>Add to Cart</span>
               </button>
-            )}
-          </div>
+            </div>
+          ) : (
+            <div>
+              <p className="max-w-fit py-1 px-5 bg-red-200 text-red-500 font-bold">
+                {name} is no longer in stock. Please wait for the available in
+                stock.
+              </p>
+            </div>
+          )}
 
           <div className="h-16">
             {warningMsg && (
