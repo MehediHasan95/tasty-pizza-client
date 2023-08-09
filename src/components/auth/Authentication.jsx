@@ -130,8 +130,8 @@ const Authentication = () => {
         .then((res) => {
           if (res.data.insertedId) {
             dispatch({ type: SUCCESS });
-            navigate(from, { replace: true });
           }
+          navigate(from, { replace: true });
         });
     });
   };

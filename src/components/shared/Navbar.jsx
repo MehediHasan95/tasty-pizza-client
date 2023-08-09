@@ -54,21 +54,23 @@ const Navbar = () => {
         </button>
       </li>
 
-      <li>
-        <NavLink to="/user-dashboard/my-cart">
-          {({ isActive }) => (
-            <button>
-              <FontAwesomeIcon
-                icon={faShoppingBag}
-                className={isActive ? active : inActive}
-              />
-              <span className="ms-2">
-                {totalQty} items - ${totalPrice?.toFixed(2)}
-              </span>
-            </button>
-          )}
-        </NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink to="/user-dashboard/my-cart">
+            {({ isActive }) => (
+              <button>
+                <FontAwesomeIcon
+                  icon={faShoppingBag}
+                  className={isActive ? active : inActive}
+                />
+                <span className="ms-2">
+                  {totalQty} items - ${totalPrice?.toFixed(2)}
+                </span>
+              </button>
+            )}
+          </NavLink>
+        </li>
+      )}
       <li>
         <NavLink
           to={`/${
