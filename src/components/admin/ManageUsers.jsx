@@ -5,8 +5,10 @@ import useAllUsers from "../../hooks/useAllUsers";
 import { no_image } from "../../utilities/image-constant";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
+import useTitle from "../../hooks/useTitle";
 
 const ManageUsers = () => {
+  useTitle("Manage users");
   const [allusers, refetch, isLoading] = useAllUsers();
   const [instance] = useAxiosSecure();
   const { user } = useAuth();

@@ -18,6 +18,7 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import { google } from "../../utilities/image-constant";
+import useTitle from "../../hooks/useTitle";
 
 const Authentication = () => {
   const initialState = {
@@ -59,7 +60,7 @@ const Authentication = () => {
     }
   };
   const [state, dispatch] = useReducer(authReducer, initialState);
-
+  useTitle(state.toggle ? "Register" : "Login");
   const {
     register,
     handleSubmit,

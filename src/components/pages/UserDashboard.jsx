@@ -1,6 +1,8 @@
+import useTitle from "../../hooks/useTitle";
 import Dashboard from "../shared/Dashboard";
 
 const UserDashboard = () => {
+  useTitle("Dashboard");
   return (
     <div className="min-h-screen main_dash">
       <div className="grid place-items-center bg-orange text-white text-center h-32 lg:h-60 dash_bg_pattern">

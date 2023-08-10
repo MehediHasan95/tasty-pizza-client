@@ -9,6 +9,7 @@ import {
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 import { successToast } from "../../utilities/toastBar";
+import useTitle from "../../hooks/useTitle";
 
 const ManageItemUpdate = () => {
   const { id } = useParams();
@@ -17,6 +18,7 @@ const ManageItemUpdate = () => {
   const [update, setUpdate] = useState({});
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  useTitle(update.name ? update.name : "loading");
 
   useEffect(() => {
     instance

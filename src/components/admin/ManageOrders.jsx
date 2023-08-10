@@ -7,8 +7,10 @@ import {
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { errorToast, successToast } from "../../utilities/toastBar";
+import useTitle from "../../hooks/useTitle";
 
 const ManageOrders = () => {
+  useTitle("Manage orders");
   const [allOrders, refetch, isLoading] = useAdminOrder();
   const { user } = useAuth();
   const [instance] = useAxiosSecure();

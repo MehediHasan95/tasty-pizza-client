@@ -6,8 +6,10 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
 import { successToast } from "../../utilities/toastBar";
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const ManageItems = () => {
+  useTitle("Manage items");
   const { user } = useAuth();
   const [allItems, refetch, isLoading] = useAllItemsAdmin();
   const [instance] = useAxiosSecure();

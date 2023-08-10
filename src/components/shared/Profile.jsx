@@ -7,8 +7,10 @@ import { no_image } from "../../utilities/image-constant";
 import { useState } from "react";
 import { errorToast } from "../../utilities/toastBar";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useTitle from "../../hooks/useTitle";
 
 const Profile = () => {
+  useTitle("Profile");
   const { user, logOut } = useAuth();
   const [profile, refetch, isLoading] = useProfile();
   const [instance] = useAxiosSecure();
@@ -18,6 +20,7 @@ const Profile = () => {
   const [username, setUserName] = useState(displayName);
   const [dp, setDp] = useState(photoURL);
   const [editaddress, setEditAddress] = useState(address);
+  useTitle(displayName);
 
   const handleProfileUpdate = () => {
     if (dp && username && editaddress) {

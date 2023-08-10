@@ -1,6 +1,8 @@
+import useTitle from "../../hooks/useTitle";
 import { blog } from "../../utilities/image-constant";
 
 const Blog = () => {
+  useTitle("Blog");
   return (
     <div className="max-w-screen-xl mx-auto my-10 px-3 lg:px-0">
       <div>

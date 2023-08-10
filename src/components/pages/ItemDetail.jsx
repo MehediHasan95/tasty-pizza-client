@@ -11,6 +11,7 @@ import axios from "axios";
 import { errorToast, successToast } from "../../utilities/toastBar";
 import useAddToCart from "../../hooks/useAddToCart";
 import { ROLE } from "../../utilities/auth-constant";
+import useTitle from "../../hooks/useTitle";
 
 const ItemDetail = () => {
   const { user, role } = useAuth();
@@ -21,6 +22,7 @@ const ItemDetail = () => {
     useLoaderData();
   const [selectedQty, setSelectedQty] = useState(1);
   let warningMsg = "";
+  useTitle(name);
 
   const handleQuantity = (toggle) => {
     if (toggle) {

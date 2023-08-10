@@ -4,8 +4,10 @@ import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Link } from "react-router-dom";
 import { empty_cart } from "../../utilities/image-constant";
+import useTitle from "../../hooks/useTitle";
 
 const MyCart = () => {
+  useTitle("My cart");
   const [cart] = useAddToCart();
   const [instance] = useAxiosSecure();
   const { carts, refetch, isLoading, totalValue } = cart;

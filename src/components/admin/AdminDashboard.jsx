@@ -1,8 +1,10 @@
 import { Bounce } from "react-awesome-reveal";
 import { Link } from "react-router-dom";
 import Dashboard from "../shared/Dashboard";
+import useTitle from "../../hooks/useTitle";
 
 const AdminDashboard = () => {
+  useTitle("Admin dashboard");
   return (
     <div className="min-h-screen main_dash">
       <div className="grid place-items-center bg-orange text-white text-center h-20 lg:h-40 dash_bg_pattern">

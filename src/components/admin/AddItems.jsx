@@ -4,8 +4,10 @@ import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { successToast } from "../../utilities/toastBar";
+import useTitle from "../../hooks/useTitle";
 
 const AddItems = () => {
+  useTitle("Add item");
   const { register, handleSubmit, reset } = useForm();
   const [loading, setLoading] = useState(false);
 

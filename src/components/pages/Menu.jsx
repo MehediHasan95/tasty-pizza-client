@@ -4,10 +4,12 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const menuCategory = ["all", "pizza", "burger", "desert", "drink", "salad"];
 
 const Menu = ({ isWhite, limit }) => {
+  useTitle("Menu");
   const [selectIndex, setSelectIndex] = useState(0);
   const [menu, setMenu] = useState([]);
 

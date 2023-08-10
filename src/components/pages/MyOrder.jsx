@@ -7,12 +7,12 @@ import useAuth from "../../hooks/useAuth";
 import { successToast } from "../../utilities/toastBar";
 import {
   faCircleCheck,
-  faHourglass,
   faHourglassEnd,
-  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
+import useTitle from "../../hooks/useTitle";
 
 const MyOrder = () => {
+  useTitle("My order");
   const [orders, refetch, isLoading] = useMyOrder();
   const [instance] = useAxiosSecure();
   const { user } = useAuth();
