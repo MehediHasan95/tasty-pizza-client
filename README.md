@@ -1,14 +1,23 @@
-# TastyPizza
+### 🌍Live Website Link: [Click Here](https://tasty-pizza-restaurant.web.app/)
 
-### Live website: [https://avengerstoyzone.web.app/](https://tasty-pizza-server.vercel.app/)
+Features:
 
-Website features:
+- Login or register and connect with the Google authentication system.
+- Customers can add to cart any items and review their order before confirming payments.
+- Admins can manage items and customer orders. Incomplete orders can be deleted from the list.
+- Separate dashboard for admins and customers.
 
-- Authenticated with firebase.
-- Category wise all items shown on.
-- There are separate dashboards for admin and user.
-- User can view item details and add to cart if desired
-- admin can delete the users from the system. also admin can add items manage items and manage users orders.
-- sslcommerz is used as payment gateway system.
+Technology:
+
+- React JS
+- Axios
+- React Hook Form
+- React Tabs
+- Firebase
+- React Query
+- Node JS
+- Express JS
+- MongoDB
+- SSLCOMMERZ
 
 # tasty-pizza-client
